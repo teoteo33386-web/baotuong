@@ -172,21 +172,7 @@ Dù khó khăn thử thách, hãy luôn cố gắng để biến ước mơ thà
         </td>
     </tr>
 </table>
-  <style>
-.video-box{
-    max-width: 720px;
-    margin: 30px auto;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-
-.video-box iframe{
-    width: 100%;
-    height: 405px;
-    border: none;
-}
-<style>
+ <style>
 .video-box{
     max-width: 720px;
     margin: 30px auto;
@@ -217,22 +203,6 @@ Dù khó khăn thử thách, hãy luôn cố gắng để biến ước mơ thà
 
 .comment b{
     color:#e67e22;
-}
-      <style>
-.tym{
-    cursor:pointer;
-    color:#888;
-    font-size:18px;
-    margin-left:10px;
-}
-
-.tym.active{
-    color:#e74c3c;
-}
-
-.count{
-    font-size:14px;
-    margin-left:3px;
 }
 </style>
 <h2 style="text-align:center;">🎥 Video lớp 12E</h2>
@@ -289,60 +259,12 @@ if(login === "yes"){
         </p>
     `;
 }
-
-</script>
-    <script>
-let login = localStorage.getItem("login");
-let tk = localStorage.getItem("tk");
-
-function hienBinhLuan(){
-    let ds = JSON.parse(localStorage.getItem("binhluan")) || [];
-    let html = "<h3>💬 Bình luận</h3>";
-
-    ds.forEach(bl=>{
-        html += `<div class="comment"><b>${bl.ten}</b>: ${bl.noidung}</div>`;
-    });
-
-    document.getElementById("dsBinhLuan").innerHTML = html;
-}
-
-function guiBinhLuan(){
-    let text = document.getElementById("noidung").value;
-    if(text=="") return;
-
-    let ds = JSON.parse(localStorage.getItem("binhluan")) || [];
-    ds.push({ten: tk, noidung: text});
-    localStorage.setItem("binhluan", JSON.stringify(ds));
-
-    document.getElementById("noidung").value="";
-    hienBinhLuan();
-}
-
-if(login === "yes"){
-    document.getElementById("binhluan").innerHTML = `
-        <h3>💬 Bình luận</h3>
-        <p>Xin chào <b>${tk}</b></p>
-        <textarea id="noidung" rows="4" style="width:100%;" placeholder="Nhập bình luận..."></textarea>
-        <br><br>
-        <button onclick="guiBinhLuan()">Gửi</button>
-        <div id="dsBinhLuan"></div>
-    `;
-    hienBinhLuan();
-}else{
-    document.getElementById("binhluan").innerHTML = `
-        <p style="color:red; text-align:center;">
-            ⚠️ Vui lòng <a href="dangnhap.html">đăng nhập</a> để bình luận video
-        </p>
-    `;
-}
 </script>
 
-
-
-<br>
 </body>
         
     </html>
+
 
 
 
