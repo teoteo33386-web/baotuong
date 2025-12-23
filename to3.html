@@ -172,7 +172,7 @@ Dù khó khăn thử thách, hãy luôn cố gắng để biến ước mơ thà
         </td>
     </tr>
 </table>
-    <style>
+  <style>
 .video-box{
     max-width: 720px;
     margin: 30px auto;
@@ -186,29 +186,146 @@ Dù khó khăn thử thách, hãy luôn cố gắng để biến ước mơ thà
     height: 405px;
     border: none;
 }
+<style>
+.video-box{
+    max-width: 720px;
+    margin: 30px auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.video-box video{
+    width:100%;
+    display:block;
+}
+
+.comment-box{
+    max-width:720px;
+    margin:20px auto;
+    background:#f9f9f9;
+    padding:15px;
+    border-radius:15px;
+}
+
+.comment{
+    margin-top:10px;
+    padding:8px;
+    background:#eee;
+    border-radius:10px;
+}
+
+.comment b{
+    color:#e67e22;
+}
+      <style>
+.tym{
+    cursor:pointer;
+    color:#888;
+    font-size:18px;
+    margin-left:10px;
+}
+
+.tym.active{
+    color:#e74c3c;
+}
+
+.count{
+    font-size:14px;
+    margin-left:3px;
+}
 </style>
+<h2 style="text-align:center;">🎥 Video lớp 12E</h2>
 
-    <h2 style="text-align:center;">🎥 Video lớp 12E</h2>
+<div class="video-box">
+    <video controls>
+        <source src="IMG_3674.MOV" type="video/mp4">
+        Trình duyệt không hỗ trợ video.
+    </video>
+</div>
 
-<video width="720" controls style="display:block; margin:auto;">
-    <source src="IMG_3674.MOV" type="video/mp4">
-    Trình duyệt không hỗ trợ video.
-</video>
-
-<div id="binhluan"></div>
-
+<div id="binhluan" class="comment-box"></div>
 <script>
 let login = localStorage.getItem("login");
 let tk = localStorage.getItem("tk");
+
+function hienBinhLuan(){
+    let ds = JSON.parse(localStorage.getItem("binhluan")) || [];
+    let html = "<h3>💬 Bình luận</h3>";
+
+    ds.forEach(bl=>{
+        html += `<div class="comment"><b>${bl.ten}</b>: ${bl.noidung}</div>`;
+    });
+
+    document.getElementById("dsBinhLuan").innerHTML = html;
+}
+
+function guiBinhLuan(){
+    let text = document.getElementById("noidung").value;
+    if(text=="") return;
+
+    let ds = JSON.parse(localStorage.getItem("binhluan")) || [];
+    ds.push({ten: tk, noidung: text});
+    localStorage.setItem("binhluan", JSON.stringify(ds));
+
+    document.getElementById("noidung").value="";
+    hienBinhLuan();
+}
 
 if(login === "yes"){
     document.getElementById("binhluan").innerHTML = `
         <h3>💬 Bình luận</h3>
         <p>Xin chào <b>${tk}</b></p>
-        <textarea rows="4" style="width:100%;" placeholder="Nhập bình luận..."></textarea>
+        <textarea id="noidung" rows="4" style="width:100%;" placeholder="Nhập bình luận..."></textarea>
         <br><br>
-        <button>Gửi</button>
+        <button onclick="guiBinhLuan()">Gửi</button>
+        <div id="dsBinhLuan"></div>
     `;
+    hienBinhLuan();
+}else{
+    document.getElementById("binhluan").innerHTML = `
+        <p style="color:red; text-align:center;">
+            ⚠️ Vui lòng <a href="dangnhap.html">đăng nhập</a> để bình luận video
+        </p>
+    `;
+}
+    <script>
+let login = localStorage.getItem("login");
+let tk = localStorage.getItem("tk");
+
+function hienBinhLuan(){
+    let ds = JSON.parse(localStorage.getItem("binhluan")) || [];
+    let html = "<h3>💬 Bình luận</h3>";
+
+    ds.forEach(bl=>{
+        html += `<div class="comment"><b>${bl.ten}</b>: ${bl.noidung}</div>`;
+    });
+
+    document.getElementById("dsBinhLuan").innerHTML = html;
+}
+
+function guiBinhLuan(){
+    let text = document.getElementById("noidung").value;
+    if(text=="") return;
+
+    let ds = JSON.parse(localStorage.getItem("binhluan")) || [];
+    ds.push({ten: tk, noidung: text});
+    localStorage.setItem("binhluan", JSON.stringify(ds));
+
+    document.getElementById("noidung").value="";
+    hienBinhLuan();
+}
+
+if(login === "yes"){
+    document.getElementById("binhluan").innerHTML = `
+        <h3>💬 Bình luận</h3>
+        <p>Xin chào <b>${tk}</b></p>
+        <textarea id="noidung" rows="4" style="width:100%;" placeholder="Nhập bình luận..."></textarea>
+        <br><br>
+        <button onclick="guiBinhLuan()">Gửi</button>
+        <div id="dsBinhLuan"></div>
+    `;
+    hienBinhLuan();
 }else{
     document.getElementById("binhluan").innerHTML = `
         <p style="color:red; text-align:center;">
@@ -224,6 +341,7 @@ if(login === "yes"){
 </body>
         
     </html>
+
 
 
 
