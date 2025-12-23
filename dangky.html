@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Đăng ký</title>
+</head>
+<body>
+
+<h3>Đăng ký</h3>
+
+Tên tài khoản <br>
+<input type="text" id="user"><br><br>
+
+Mật khẩu <br>
+<input type="password" id="pass"><br><br>
+
+<button onclick="dangKy()">Đăng ký</button>
+
+<script>
+function dangKy(){
+    var u = document.getElementById("user").value;
+    var p = document.getElementById("pass").value;
+
+    if(u=="" || p==""){
+        alert("Nhập đầy đủ thông tin!");
+        return;
+    }
+
+    // LƯU VÀO TRÌNH DUYỆT
+    localStorage.setItem("tk", u);
+    localStorage.setItem("mk", p);
+
+    // Đánh dấu đã đăng nhập
+    localStorage.setItem("login", "yes");
+
+    alert("Đăng ký thành công!");
+    window.location.href = "to3.html";
+}
+</script>
+
+</body>
+</html>
