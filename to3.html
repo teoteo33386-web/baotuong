@@ -10,44 +10,56 @@
 <center>
     <h2 style="color:green;">🌱 CHỦ ĐỀ BÁO TƯỜNG 26/3 ♥️</h2>
     <b>“Báo Tường Tổ 3”</b>
-    <style>
-.top-right {
-    position: absolute;
+  <!-- ================= NÚT GÓC PHẢI ================= -->
+<style>
+.top-right{
+    position: fixed;
     top: 15px;
     right: 20px;
+    z-index: 999;
 }
 
-.top-right a {
+.btn{
     text-decoration: none;
+    padding: 6px 16px;
+    margin-left: 6px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
 }
 
-.top-right button {
-    padding: 6px 14px;
-    margin-left: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.btn-login{
+    background-color: #3498db;
+}
+
+.btn-register{
+    background-color: #e67e22;
+}
+
+.btn:hover{
+    opacity: 0.85;
+}
+
+.hello{
+    background: #e8f5e9;
+    padding: 6px 16px;
+    border-radius: 20px;
     font-size: 14px;
 }
 
-.btn-login {
-    background-color: #3498db;
-    color: white;
+.hello a{
+    color: #d32f2f;
+    font-weight: bold;
+    text-decoration: none;
 }
+</style>
 
-.btn-register {
-    background-color: #e67e22;
-    color: white;
-}
-
-.top-right button:hover {
-    opacity: 0.8;
-</div>
-
- <!-- NÚT ĐĂNG NHẬP / ĐĂNG KÝ -->
+<!-- NÚT ĐĂNG NHẬP / ĐĂNG KÝ -->
 <div id="nutDangNhap" class="top-right">
-    <a href="dangnhap.html" class="btn login">Đăng nhập</a>
-    <a href="dangky.html" class="btn register">Đăng ký</a>
+    <a href="dangnhap.html" class="btn btn-login">Đăng nhập</a>
+    <a href="dangky.html" class="btn btn-register">Đăng ký</a>
 </div>
 
 <!-- XIN CHÀO -->
@@ -55,8 +67,22 @@
     Xin chào, <b id="tenUser"></b> |
     <a href="#" onclick="dangXuat()">Đăng xuất</a>
 </div>
-    </style>
-</center>
+
+<script>
+if(localStorage.getItem("login") === "yes"){
+    document.getElementById("nutDangNhap").style.display = "none";
+    document.getElementById("xinChao").style.display = "block";
+    document.getElementById("tenUser").innerText =
+        localStorage.getItem("tk");
+}
+
+function dangXuat(){
+    localStorage.removeItem("login");
+    location.reload();
+}
+</script>
+<!-- ================= END ================= -->
+
     
 <br>
 
@@ -124,6 +150,7 @@ Dù khó khăn thử thách, hãy luôn cố gắng để biến ước mơ thà
 
 </body>
 </html>
+
 
 
 
