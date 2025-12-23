@@ -171,6 +171,35 @@ Dù khó khăn thử thách, hãy luôn cố gắng để biến ước mơ thà
         </td>
     </tr>
 </table>
+    <h2 style="text-align:center;">🎥 Video lớp 12E</h2>
+
+<video width="720" controls style="display:block; margin:auto;">
+    <source src="IMG_3674.MOV" type="video/mp4">
+    Trình duyệt không hỗ trợ video.
+</video>
+
+<div id="binhluan"></div>
+
+<script>
+let login = localStorage.getItem("login");
+let tk = localStorage.getItem("tk");
+
+if(login === "yes"){
+    document.getElementById("binhluan").innerHTML = `
+        <h3>💬 Bình luận</h3>
+        <p>Xin chào <b>${tk}</b></p>
+        <textarea rows="4" style="width:100%;" placeholder="Nhập bình luận..."></textarea>
+        <br><br>
+        <button>Gửi</button>
+    `;
+}else{
+    document.getElementById("binhluan").innerHTML = `
+        <p style="color:red; text-align:center;">
+            ⚠️ Vui lòng <a href="dangnhap.html">đăng nhập</a> để bình luận video
+        </p>
+    `;
+}
+</script>
 
 <hr>
 
@@ -192,6 +221,7 @@ Dù khó khăn thử thách, hãy luôn cố gắng để biến ước mơ thà
 
 </body>
 </html>
+
 
 
 
