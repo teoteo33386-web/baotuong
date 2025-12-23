@@ -10,40 +10,81 @@
 <center>
     <h2 style="color:green;">🌱 CHỦ ĐỀ BÁO TƯỜNG 26/3 ♥️</h2>
     <b>“Báo Tường Tổ 3”</b>
-    <style>
-.top-right {
-    position: absolute;
+  <style>
+body{
+    font-family: Arial;
+    background: #fdf2e9;
+}
+
+/* HỘP ĐĂNG KÝ */
+.box{
+    width: 320px;
+    margin: 100px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+h3{
+    text-align: center;
+    color: #ff9800;
+}
+
+input{
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+}
+
+/* NÚT ĐĂNG KÝ */
+button{
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    background: linear-gradient(45deg,#ff9800,#ff5722);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover{
+    opacity: 0.9;
+}
+
+a{
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+/* NÚT GÓC PHẢI (QUAY VỀ) */
+.top-right{
+    position: fixed;
     top: 15px;
     right: 20px;
 }
 
-.top-right a {
+.top-right a{
+    background: #2196f3;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
     text-decoration: none;
-}
-
-.top-right button {
-    padding: 6px 14px;
-    margin-left: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.btn-login {
-    background-color: #3498db;
-    color: white;
-}
-
-.btn-register {
-    background-color: #e67e22;
-    color: white;
-}
-
-.top-right button:hover {
-    opacity: 0.8;
+    font-weight: bold;
 }
 </style>
+</head>
+
+<body>
+
+<!-- NÚT GÓC PHẢI -->
+<div class="top-right">
+    <a href="to3.html">Trang báo tường</a>
+</div>
 
 <div class="box">
 <h3>Đăng ký tài khoản</h3>
@@ -73,9 +114,6 @@ function dangKy(){
     window.location.href="to3.html";
 }
 </script>
-
-
-</center>
 
 <br>
 
@@ -143,4 +181,5 @@ Dù khó khăn thử thách, hãy luôn cố gắng để biến ước mơ thà
 
 </body>
 </html>
+
 
