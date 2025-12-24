@@ -205,11 +205,11 @@ Dù khó khăn thử thách, hãy luôn cố gắng để biến ước mơ thà
     color:#e67e22;
 }
 </style>
-<h2 style="text-align:center;">🎥 Video lớp 12E</h2>
+<h2 style="text-align:center;">🎥 12E</h2>
 
 <div class="video-box">
     <video controls>
-        <source src="IMG_3674.MOV" type="video/mp4">
+        <source src="3ac6e8e9-f679-48ad-aa6f-fca9131afea4.mp4" type="video/mp4">
         Trình duyệt không hỗ trợ video.
     </video>
 </div>
@@ -224,7 +224,11 @@ function hienBinhLuan(){
     let html = "<h3>💬 Bình luận</h3>";
 
     ds.forEach(bl=>{
-        html += `<div class="comment"><b>${bl.ten}</b>: ${bl.noidung}</div>`;
+       html += `
+<div class="comment">
+    <div class="ten">${bl.ten}</div>
+    <div class="noidung">${bl.noidung}</div>
+</div>`;
     });
 
     document.getElementById("dsBinhLuan").innerHTML = html;
@@ -264,6 +268,7 @@ if(login === "yes"){
 </body>
         
     </html>
+
 
 
 
